@@ -64,7 +64,8 @@ st.sidebar.markdown("""---""")
 #---------------------- Player selection ------------------- #
 
 selected_player = st.sidebar.selectbox(label='Select the player', 
-                       options=data['Player'].unique())
+                       options=data['Player'].unique(),
+                       index=142)
 
 # selected_player = st.sidebar.text_input(label="Player's name", value='Joel Embiid')
 
