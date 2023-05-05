@@ -16,6 +16,7 @@ st.set_page_config(page_title = 'Single Player Vision', layout='wide', page_icon
 ########################################################
 
 data = pd.read_csv('df_selected.csv', low_memory=False)
+data_complete = pd.read_csv('df.csv', low_memory=False)
 
 
 
@@ -62,17 +63,19 @@ st.sidebar.markdown("""---""")
 
 
 #---------------------- Player selection ------------------- #
-
+#### Setting the widget
 selected_player = st.sidebar.selectbox(label='Select the player', 
                        options=data['Player'].unique(),
                        index=142)
 
 # selected_player = st.sidebar.text_input(label="Player's name", value='Joel Embiid')
 
-
+#### Filtering the dataset
 selected_data = data[data['Player'] == selected_player]
 st.sidebar.markdown('##### Powered by Bruno Piato')
 
+selected_data_complete = data_complete[data_complete['Player']==selected_player]
+selected_data_complete = selected_data_complete.drop('Unnamed: 0', axis = 1)
 
 
 #-------------------------- METRICS ------------------------ #
@@ -185,7 +188,7 @@ with st.container():
         
         st.plotly_chart(fig, use_container_width=True)
         
-    # ----------------------------------------------------------------    
+# ----------------------------------------------------------------    
     with col3:
         # st.markdown('### Other Features')
         descriptive_features = ['TOV', 'GM', 'PF', 'G', 'MP', 'WS', 'VORP']
@@ -214,5 +217,8 @@ with st.container():
             )
         
         st.plotly_chart(fig, use_container_width=True)
-        
 
+# ----------------------------------------------------------------    
+
+with st.container():
+    st.dataframe(selected_data_complete)

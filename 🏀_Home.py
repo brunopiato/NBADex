@@ -28,6 +28,8 @@ st.markdown("""
                     - An overall view of the main statistics.
                 - Forth tab:
                     - A features glossary as extracted from https://www.basketball-reference.com/.
+                - Note that the values inside the radar charts are standardized according to the maximum for each feature in the dataset. It means that a value of 0.3 is equivalent of 30% of the maximumfor that feature, while a value of 1.0 is the maximum value itselt.
+                - If you want to check the real values for each feature it is presented at the end of the page 
                 
             ### Ask for help
             - Via Discord

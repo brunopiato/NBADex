@@ -16,6 +16,7 @@ st.set_page_config(page_title = 'Single Player Vision', layout='wide', page_icon
 ########################################################
 
 data = pd.read_csv('df_selected.csv', low_memory=False)
+data_complete = pd.read_csv('df.csv', low_memory=False)
 
 
 
@@ -75,6 +76,10 @@ selected_player_B = st.sidebar.selectbox(label='Select the player',
                        options=data['Player'].unique(),
                        index=248)
 selected_data_B = data[data['Player'] == selected_player_B]
+
+
+selected_data_complete = data_complete[(data_complete['Player']==selected_player_A) | (data_complete['Player']==selected_player_B)]
+selected_data_complete = selected_data_complete.drop('Unnamed: 0', axis = 1)
 
 
 
@@ -240,7 +245,7 @@ with st.container():
             showlegend=False,
             width=800, height=800,
             template="plotly_dark",
-            title = 'Offensive Features'
+            title = 'Defensive Features'
             )
 
         st.plotly_chart(fig, use_container_width=True)
@@ -283,10 +288,11 @@ with st.container():
             showlegend=False,
             width=800, height=800,
             template="plotly_dark",
-            title = 'Offensive Features'
+            title = 'Descriptive Features'
             )
 
         st.plotly_chart(fig, use_container_width=True)
+# ----------------------------------------------------------------
 
-        
-
+with st.container():
+    st.dataframe(selected_data_complete)
