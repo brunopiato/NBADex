@@ -27,7 +27,8 @@ st.markdown("""
                 - Third tab:
                     - An overall view of the main statistics.
                 - Forth tab:
-                    - A features glossary as extracted from https://www.basketball-reference.com/.
+                    - A features glossary as extracted from:
+                        https://www.basketball-reference.com/
                 - Note that the values inside the radar charts are 
                 standardized according to the maximum for each feature
                 in the dataset. It means that a value of 0.3 is equivalent 
