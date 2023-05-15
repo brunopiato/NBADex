@@ -143,7 +143,11 @@ with st.container():
             fill='toself',
             name=selected_player
         ))
-        fig.update_layout(
+        fig.update_layout(legend=dict(
+                yanchor="top",
+                y=0.99,
+                xanchor="left",
+                x=0.01),
             polar=dict(
                 radialaxis=dict(
                 visible=True,
@@ -174,7 +178,11 @@ with st.container():
             fill='toself',
             name=selected_player
         ))
-        fig.update_layout(
+        fig.update_layout(legend=dict(
+                yanchor="top",
+                y=0.99,
+                xanchor="left",
+                x=0.01),
             polar=dict(
                 radialaxis=dict(
                 visible=True,
@@ -204,7 +212,11 @@ with st.container():
             fill='toself',
             name=selected_player
         ))
-        fig.update_layout(
+        fig.update_layout(legend=dict(
+                yanchor="top",
+                y=0.99,
+                xanchor="left",
+                x=0.01),
             polar=dict(
                 radialaxis=dict(
                 visible=True,
