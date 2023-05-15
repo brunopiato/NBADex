@@ -149,8 +149,8 @@ with st.container():
                 visible=True,
                 range=[0, 1]
                 )),
-            showlegend=False,
-            width=800, height=800,
+            showlegend=True,
+            width=800, height=650,
             template="plotly_dark",
             title = 'Offensive Features'
             )
@@ -180,8 +180,8 @@ with st.container():
                 visible=True,
                 range=[0, 1]
                 )),
-            showlegend=False,
-            width=800, height=800,
+            showlegend=True,
+            width=800, height=650,
             template="plotly_dark",
             title = 'Defensive Features'
             )
@@ -210,8 +210,8 @@ with st.container():
                 visible=True,
                 range=[0, 1]
                 )),
-            showlegend=False,
-            width=800, height=800,
+            showlegend=True,
+            width=800, height=650,
             template="plotly_dark",
             title = 'Descriptive Features'
             )

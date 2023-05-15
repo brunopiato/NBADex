@@ -194,14 +194,18 @@ with st.container():
             name=selected_player_B
         ))
         
-        fig.update_layout(
+        fig.update_layout(legend=dict(
+                yanchor="top",
+                y=0.99,
+                xanchor="left",
+                x=0.01),
             polar=dict(
                 radialaxis=dict(
                 visible=True,
                 range=[0, 1]
                 )),
-            showlegend=False,
-            width=800, height=800,
+            showlegend=True,
+            width=800, height=650,
             template="plotly_dark",
             title = 'Offensive Features'
             )
@@ -236,14 +240,18 @@ with st.container():
             name=selected_player_B
         ))
         
-        fig.update_layout(
+        fig.update_layout(legend=dict(
+                yanchor="top",
+                y=0.99,
+                xanchor="left",
+                x=0.01),
             polar=dict(
                 radialaxis=dict(
                 visible=True,
                 range=[0, 1]
                 )),
-            showlegend=False,
-            width=800, height=800,
+            showlegend=True,
+            width=800, height=650,
             template="plotly_dark",
             title = 'Defensive Features'
             )
@@ -279,14 +287,18 @@ with st.container():
             name=selected_player_B
         ))
         
-        fig.update_layout(
+        fig.update_layout(legend=dict(
+                yanchor="top",
+                y=0.99,
+                xanchor="left",
+                x=0.01),
             polar=dict(
                 radialaxis=dict(
                 visible=True,
                 range=[0, 1]
                 )),
-            showlegend=False,
-            width=800, height=800,
+            showlegend=True,
+            width=800, height=650,
             template="plotly_dark",
             title = 'Descriptive Features'
             )
