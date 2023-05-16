@@ -36,7 +36,15 @@ st.markdown("""
                 is the maximum value itselt.
                 - If you want to check the real values for each feature it 
                 is presented at the end of the page 
-                
+            
+            ### Next features to be implemented:
+            - New features and traits about the players, like height, weight, wingspan, etc
+            - Data from previous season players
+            - Team and position filters to make search easier
+            - Some advanced analytics like
+                - Polygonal area for each chart of each player
+                - Clustering method to group similar players
+            
             ### Ask for help
             - Via Discord
                 - @piatobruno#0143
