@@ -38,7 +38,7 @@ st.markdown("""
                 is presented at the end of the page 
             
             ### Next features to be implemented:
-            - New features and traits about the players, like height, weight, wingspan, etc
+            - New characteristics and traits about the players, like height, weight, wingspan, etc
             - Data from previous season players
             - Team and position filters to make search easier
             - Some advanced analytics like
