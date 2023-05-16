@@ -45,9 +45,7 @@ st.markdown("""
                 - Polygonal area for each chart of each player
                 - Clustering method to group similar players
             
-            ### Ask for help
-            - Via Discord
-                - @piatobruno#0143
-            - Via e-mail:
-                - piatobio@gmail.com
+            #### Ask for help
+            - Via Discord: @piatobruno#0143
+            - Via e-mail: piatobio@gmail.com
             """)
