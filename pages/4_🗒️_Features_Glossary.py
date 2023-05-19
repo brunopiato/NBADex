@@ -19,7 +19,7 @@ import streamlit as st
 ########################################################
 
 st.sidebar.image('./pages/NBA_logo_small.png', use_column_width=True)
-st.sidebar.markdown('# NBA PlayersDex v.0.1')
+st.sidebar.markdown('# NBA PlayersDex v.0.2')
 st.sidebar.markdown('## Season 22/23')
 st.sidebar.markdown("""---""")
 
@@ -31,123 +31,119 @@ st.sidebar.markdown("""---""")
 #              Layout do corpo da página
 ########################################################
 
-st.markdown("""
-            
-# Features from Advanced Dataset         
-            
-- Rk -- Rank
+st.markdown("""       
 
-- Pos -- Position
+## Selected Features
 
-- Age -- Player's age on February 1 of the season
+### Bios
 
-- Tm -- Team
+PLAYER_ID: An identification number to each player.
 
-- G -- Games
+PLAYER_NAME: A player's name.
 
-- MP -- Minutes Played
+TEAM_ID: An identification number to each NBA team.
 
-- PER -- Player Efficiency Rating. A measure of per-minute production standardized such that the league average is 15.
+TEAM_ABBREVIATION: An abbreviation to the team's name.
 
-- TS% -- True Shooting Percentage. A measure of shooting efficiency that takes into account 2-point field goals, 3-point field goals, and free throws.
+AGE: Player's age.
 
-- 3PAr -- 3-Point Attempt Rate. Percentage of FG Attempts from 3-Point Range
+PLAYER_HEIGHT_INCHES: Player's height in inches.
 
-- FTr -- Free Throw Attempt Rate. Number of FT Attempts Per FG Attempt
+PLAYER_HEIGHT_CM: Player's height in centimeters.
 
-- ORB% -- Offensive Rebound Percentage. An estimate of the percentage of available offensive rebounds a player grabbed while they were on the floor.
+PLAYER_WEIGHT: Player's weight in pounds .
 
-- DRB% -- Defensive Rebound Percentage. An estimate of the percentage of available defensive rebounds a player grabbed while they were on the floor.
+PLAYER_WEIGHT_KG: Player's weight in kilograms.
 
-- TRB% -- Total Rebound Percentage. An estimate of the percentage of available rebounds a player grabbed while they were on the floor.
+COLLEGE: The college where the players was before coming to the NBA.
 
-- AST% -- Assist Percentage. An estimate of the percentage of teammate field goals a player assisted while they were on the floor.
+COUNTRY: The player's nationality.
 
-- STL% -- Steal Percentage. An estimate of the percentage of opponent possessions that end with a steal by the player while they were on the floor.
+DRAFT_YEAR: The year when a player was drafted or if he was undrafted.
 
-- BLK% -- Block Percentage. An estimate of the percentage of opponent two-point field goal attempts blocked by the player while they were on the floor.
+PLAYER_LAST_NAME: Player's last name.
 
-- TOV% -- Turnover Percentage. An estimate of turnovers committed per 100 plays.
+PLAYER_FIRST_NAME: Player's first name.
 
-- USG% -- Usage Percentage. An estimate of the percentage of team plays used by a player while they were on the floor.
+JERSEY_NUMBER: The number of a player's jersey.
 
-- OWS -- Offensive Win Shares. An estimate of the number of wins contributed by a player due to offense.
+POSITION: The main position where a player acts.
 
-- DWS -- Defensive Win Shares. An estimate of the number of wins contributed by a player due to defense.
+### Traditional stats
 
-- WS -- Win Shares. An estimate of the number of wins contributed by a player.
+GP: Games played during the season.
 
-- WS/48 -- Win Shares Per 48 Minutes. An estimate of the number of wins contributed by a player per 48 minutes (league average is approximately .100)
+PTS: Points per game a player made.
 
-- OBPM -- Offensive Box Plus/Minus. A box score estimate of the offensive points per 100 possessions a player contributed above a league-average player, translated to an average team.
+REB: Number of rebounds a player got per game.
 
-- DBPM -- Defensive Box Plus/Minus. A box score estimate of the defensive points per 100 possessions a player contributed above a league-average player, translated to an average team.
+AST: Number of assists a player gave per game.
 
-- BPM -- Box Plus/Minus. A box score estimate of the points per 100 possessions a player contributed above a league-average player, translated to an average team.
+G: ????
 
-- VORP -- Value over Replacement Player. A box score estimate of the points per 100 TEAM possessions that a player contributed above a replacement-level (-2.0) player, translated to an average team and prorated to an 82-game season. Multiply by 2.70 to convert to wins over replacement.
+MIN: Minutes played per game.
 
------------------------------------------------------------------ 
+PLUS_MINUS: The point differential when a player on floor.
 
-# Features from Plain Dataset
+PFD: Personal fouls a player drawed towards him per game.
 
-- Rk -- Rank
+- Offensive
 
-- Pos -- Position
+FGM: Field goals made per game.
 
-- Age -- Player's age on February 1 of the season
+FGA: Field goals attempted per game.
 
-- Tm -- Team
+FG_PCT: Field goals made percentage per game.
 
-- G -- Games
+FG3M: Three pointers made per game.
 
-- GS -- Games Started
+FG3A: Three pointers attampted per game.
 
-- MP -- Minutes Played Per Game
+FG3_PCT: Three pointers made percentage per game.
 
-- FG -- Field Goals Per Game
+FTM: Free-throws made per game.
 
-- FGA -- Field Goal Attempts Per Game
+FTA: Free-throws attempted per game.
 
-- FG% -- Field Goal Percentage
+FT_PCT: Free-throws made percentage per game.
 
-- 3P -- 3-Point Field Goals Per Game
+- Defensive
 
-- 3PA -- 3-Point Field Goal Attempts Per Game
+OREB: Offensive rebounds per game.
 
-- 3P% -- 3-Point Field Goal Percentage
+DREB: Defensive rebounds per game.
 
-- 2P -- 2-Point Field Goals Per Game
+STL: Stills per game.
 
-- 2PA -- 2-Point Field Goal Attempts Per Game
+BLK: Blocks per game.
 
-- 2P% -- 2-Point Field Goal Percentage
+BLKA: Block attempts per game.
 
-- eFG% -- Effective Field Goal Percentage. This statistic adjusts for the fact that a 3-point field goal is worth one more point than a 2-point field goal.
+- Negative Traits
 
-- FT -- Free Throws Per Game
+TOV: Turn-overs per game.
 
-- FTA -- Free Throw Attempts Per Game
+PF: Personal fouls per game.
 
-- FT% -- Free Throw Percentage
+### Hustle stats
 
-- ORB -- Offensive Rebounds Per Game
+CONTESTED_SHOTS: Shots a player contested.
 
-- DRB -- Defensive Rebounds Per Game
+CONTESTED_SHOTS_2PT: Shots for two points a player contested.
 
-- TRB -- Total Rebounds Per Game
+CONTESTED_SHOTS_3PT: Shots for three points a player contested.
 
-- AST -- Assists Per Game
+DEFLECTIONS: Number of deflections a player made.
 
-- STL -- Steals Per Game
+CHARGES_DRAWN: Number of charges a player draw.
 
-- BLK -- Blocks Per Game
+SCREEN_ASSISTS: Number of screen assists a player gave.
 
-- TOV -- Turnovers Per Game
+OFF_BOXOUTS: Number of times a player drawn contact with another player in order to pusue the possession due to offensive plays.
 
-- PF -- Personal Fouls Per Game
+DEF_BOXOUTS: Number of times a player drawn contact with another player in order to pusue the possession due to defensive plays.
 
-- PTS -- Points Per Game
+BOX_OUTS: Number of times a player drawn contact with another player in order to pusue the possession.
 
 
 ------
@@ -161,6 +157,8 @@ st.markdown("""
 ### Forwards
 - SF: Small Forward (ala - 3)
 - PF: Power Forward (ala-pivô - 4)
+
+### Center
 - C: Center (pivô - 5)
             
             """)

@@ -11,7 +11,7 @@ st.sidebar.markdown('## Visualizing your favorite players')
 st.sidebar.image('./pages/NBA_logo.png', use_column_width=True)
 st.sidebar.markdown("""---""")
 
-st.write('# NBA PlayersDex v.0.1')
+st.write('# NBA PlayersDex v.0.2')
 st.write('## Season 22/23')
 
 st.markdown("""

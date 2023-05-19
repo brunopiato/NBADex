@@ -15,8 +15,8 @@ st.set_page_config(page_title = 'Single Player Vision', layout='wide', page_icon
 #              Carregando dados tratados
 ########################################################
 
-data = pd.read_csv('df_selected.csv', low_memory=False)
-data_complete = pd.read_csv('df.csv', low_memory=False)
+data = pd.read_csv('transformed_df.csv', low_memory=False)
+data_complete = pd.read_csv('filtered_df.csv', low_memory=False)
 
 
 
@@ -36,7 +36,7 @@ data_complete = pd.read_csv('df.csv', low_memory=False)
 #              Layout da barra lateral
 ########################################################
 st.sidebar.image('./pages/NBA_logo_small.png', use_column_width=True)
-st.sidebar.markdown('# NBA PlayersDex v.0.1')
+st.sidebar.markdown('# NBA PlayersDex v.0.2')
 st.sidebar.markdown('## Season 22/23')
 st.sidebar.markdown("""---""")
 
@@ -65,29 +65,34 @@ st.sidebar.markdown("""---""")
 #---------------------- Player selection ------------------- #
 #### Setting the widget
 selected_player = st.sidebar.selectbox(label='Select the player', 
-                       options=data['Player'].unique(),
-                       index=142)
+                       options=data['PLAYER_NAME'].unique())
 
 # selected_player = st.sidebar.text_input(label="Player's name", value='Joel Embiid')
 
 #### Filtering the dataset
-selected_data = data[data['Player'] == selected_player]
+selected_data = data[data['PLAYER_NAME'] == selected_player]
 st.sidebar.markdown('##### Powered by Bruno Piato')
 
-selected_data_complete = data_complete[data_complete['Player']==selected_player]
-selected_data_complete = selected_data_complete.drop('Unnamed: 0', axis = 1)
+selected_data_complete = data_complete[data_complete['PLAYER_NAME']==selected_player]
+# selected_data_complete = selected_data_complete.drop('Unnamed: 0', axis = 1)
 
 
 #-------------------------- METRICS ------------------------ #
-team = selected_data['Tm'].iloc[0]
-position = selected_data['Pos'].iloc[0]
-age = selected_data['Age'].iloc[0]
-vorp = selected_data['VORP'].iloc[0]
-obpm = selected_data['OBPM'].iloc[0]
-dbpm = selected_data['DBPM'].iloc[0]
-bpm = selected_data['BPM'].iloc[0]
+team = selected_data['TEAM_ABBREVIATION'].iloc[0]
+position = selected_data['POSITION'].iloc[0]
+age = selected_data['AGE'].iloc[0].astype(int)
+plus_minus = selected_data['PLUS_MINUS'].iloc[0]
+country = selected_data['COUNTRY'].iloc[0]
+height = selected_data['PLAYER_HEIGHT_CM'].iloc[0].astype(int)
+weight = selected_data['PLAYER_WEIGHT_KG'].iloc[0]
+draft = selected_data['DRAFT_YEAR'].iloc[0]
+number = selected_data['JERSEY_NUMBER'].iloc[0].astype(int)
 
 
+#-------------------------- FEATURES ------------------------ #
+offensive_features = ['PTS', 'AST', 'FG_PCT', 'FG3_PCT', 'FT_PCT', ]
+defensive_features = ['OREB', 'DREB', 'STL', 'BLK', 'CONTESTED_SHOTS', 'BOX_OUTS', 'CHARGES_DRAWN']
+descriptive_features = ['GP', 'MIN', 'PF', 'PFD', 'TOV', 'REB']
 
 ########################################################
 #              Layout do corpo da página
@@ -103,23 +108,25 @@ st.metric(label='',
 with st.container():
     col1, col2, col3 = st.columns(3)
     with col1:
-        # st.markdown('#### Team and Position')
+        # st.markdown('#### Team, Position and age')
         st.text(f'Team: {team}')
         st.text(f'Position: {position}')
         st.text(f'Age: {age}')
 
     # ----------------------------------------------------------------    
     with col2:
-        # st.markdown('#### Age and score')
-     
-        st.text(f'VORP Rank: {round(vorp, 3)}')
-        st.text(f'BPM: {round(bpm, 3)}')
+        # st.markdown('#### Country, height and weight')
+        st.text(f'Country: {country}')
+        st.text(f'Height(cm): {height}')
+        st.text(f'Weight(kg): {weight}')
 
     # ----------------------------------------------------------------    
     with col3: 
-        # st.markdown('#### Info 1 e 2')
-        st.text(f'OBPM: {round(obpm, 3)}')
-        st.text(f'DBPM: {round(dbpm, 3)}')
+        # st.markdown('#### Nationality, Plus/Minus and draft')
+        st.text(f'Plus/Minus: {round(plus_minus, 3)}')
+        st.text(f'Drafted in: {draft}')
+        st.text(f'Jersey Number: {number}')
+
         
 st.markdown("---")
 
@@ -130,9 +137,7 @@ with st.container():
     # ----------------------------------------------------------------    
     with col1:
         # st.markdown('### Offensive')
-        offensive_features = ['PTS', 'FT%', '2P%', '3P%', 'TS%', 'AST', 'OWS']
-        
-        aux = selected_data[selected_data['Player'] == selected_player][offensive_features].T
+        aux = selected_data[selected_data['PLAYER_NAME'] == selected_player][offensive_features].T
         aux.columns = [selected_player]
         
         # plt.rcParams['figure.figsize'] = [4, 4]
@@ -165,9 +170,7 @@ with st.container():
     # ----------------------------------------------------------------    
     with col2:
         # st.markdown('### Defensive')
-        defensive_features = ['ORB', 'DRB', 'STL', 'BLK', 'DWS']
-        
-        aux = selected_data[selected_data['Player'] == selected_player][defensive_features].T
+        aux = selected_data[selected_data['PLAYER_NAME'] == selected_player][defensive_features].T
         aux.columns = [selected_player]
         
         # plt.rcParams['figure.figsize'] = [4, 4]
@@ -199,9 +202,7 @@ with st.container():
 # ----------------------------------------------------------------    
     with col3:
         # st.markdown('### Other Features')
-        descriptive_features = ['TOV', 'GM', 'PF', 'G', 'MP', 'WS', 'VORP']
-        
-        aux = selected_data[selected_data['Player'] == selected_player][descriptive_features].T
+        aux = selected_data[selected_data['PLAYER_NAME'] == selected_player][descriptive_features].T
         aux.columns = [selected_player]
         
         # plt.rcParams['figure.figsize'] = [4, 4]
