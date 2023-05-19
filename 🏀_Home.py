@@ -5,7 +5,7 @@ st.set_page_config(
     page_icon = "🏀")
 
 
-st.sidebar.markdown('# NBA PlayersDex v.0.1')
+st.sidebar.markdown('# NBA PlayersDex v.0.2')
 st.sidebar.markdown('## Season 22/23')
 st.sidebar.markdown('## Visualizing your favorite players')
 st.sidebar.image('./pages/NBA_logo.png', use_column_width=True)
@@ -28,7 +28,7 @@ st.markdown("""
                     - An overall view of the main statistics.
                 - Forth tab:
                     - A features glossary as extracted from:
-                        https://www.basketball-reference.com/
+                        https://www.nba.com/stats/help/glossary
                 - Note that the values inside the radar charts are 
                 standardized according to the maximum for each feature
                 in the dataset. It means that a value of 0.3 is equivalent 
