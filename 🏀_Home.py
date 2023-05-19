@@ -21,21 +21,21 @@ st.markdown("""
             
             ### How to use the NBA PlayersDex
                 - First tab:
-                    - A single player vision.
+                    - A single player vision: so you can inspect your favorite player alone.
                 - Second tab: 
-                    - A player-to-player comparison.
+                    - A player-to-player comparison: making it easier to compare two different 
+                    players.
                 - Third tab:
-                    - An overall view of the main statistics.
+                    - An overall view of the main statistics: providing some basic insights about 
+                    the main stats for the season.
                 - Forth tab:
-                    - A features glossary as extracted from:
-                        https://www.basketball-reference.com/
-                - Note that the values inside the radar charts are 
-                standardized according to the maximum for each feature
-                in the dataset. It means that a value of 0.3 is equivalent 
-                of 30% of the maximumfor that feature, while a value of 1.0 
-                is the maximum value itselt.
-                - If you want to check the real values for each feature it 
-                is presented at the end of the page 
+                    - Features glossary as extracted from: https://www.basketball-reference.com/
+                - Note that the values inside the radar charts are standardized according to the 
+                maximum for each feature in the dataset. It means that a value of 0.3 is 
+                equivalent to 30% of the maximum for that feature, while a value of 1.0 is the 
+                maximum value itselt.
+                - If you want to check the real values for each feature it is presented at the 
+                end of the page.
             
             ### Next features to be implemented:
             - New characteristics and traits about the players, like height, weight, wingspan, etc

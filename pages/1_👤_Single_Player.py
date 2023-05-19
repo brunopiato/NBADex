@@ -15,8 +15,8 @@ st.set_page_config(page_title = 'Single Player Vision', layout='wide', page_icon
 #              Carregando dados tratados
 ########################################################
 
-data = pd.read_csv('df_selected.csv', low_memory=False)
-data_complete = pd.read_csv('df.csv', low_memory=False)
+data = pd.read_csv('df_selected.csv', low_memory=False) # The df_selected.csv file has selected and transformed data
+data_complete = pd.read_csv('df.csv', low_memory=False) # The df.csv file has raw data about the players
 
 
 
