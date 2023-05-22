@@ -17,6 +17,10 @@ st.write('## Season 22/23')
 st.markdown("""
             This app is intended to give you a visual analysis of your favorite players along with a comparison of a player-to-player rank for players during season 2022 and 2023.
             
+            In each player's page you find informations about that player, such as thei weight, height nationality, etc, along with some charts about their stats. You'll find a
+            general metric of the area of the polygons formed in the radar charts shown along with the general player's infos. The polygons are assumed to represent the overall 
+            quality of the player so the meaure of its area is a numerical metric to assess such information and its .
+            
             I strongly recommend you to use the dark theme (`Settings >> Theme >> Dark`) so the colors of the charts match more elegantly.
             
             ### How to use the NBA PlayersDex
