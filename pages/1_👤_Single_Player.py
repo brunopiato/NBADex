@@ -69,7 +69,7 @@ st.sidebar.markdown("""---""")
 #### Setting the widget
 selected_player = st.sidebar.selectbox(label='Select the player', 
                        options=data['PLAYER_NAME'].unique(),
-                       index=random.randint(0, len(data['PLAYER_NAME'].unique())))
+                       index=252)
 selected_data = data[data['PLAYER_NAME'] == selected_player]
 selected_data_complete = data_complete[data_complete['PLAYER_NAME']==selected_player]
 
