@@ -268,19 +268,19 @@ with st.container():
                 st.text(f'Team: {team_A}')
                 st.text(f'Position: {position_A}')
                 st.text(f'Age: {age_A}')
-                st.text(f'Offensive polygon: {round(df_off_a[0], 2)}')
+                st.text(f'Offensive polygon: {round(df_off_a[1], 2)}')
 
             with col4:
                 st.text(f'Country: {country_A}')
                 st.text(f'Height(cm): {height_A}')
                 st.text(f'Weight(kg): {weight_A}')
-                st.text(f'Defensive polygon: {round(df_def_a[0], 2)}')
+                st.text(f'Defensive polygon: {round(df_def_a[1], 2)}')
 
             with col5: 
                 st.text(f'Plus/Minus: {round(plus_minus_A, 3)}')
                 st.text(f'Drafted in: {draft_A}')
                 st.text(f'Jersey Number: {number_A}')
-                st.text(f'Descritive polygon: {round(df_desc_a[0], 2)}')
+                st.text(f'Descritive polygon: {round(df_desc_a[1], 2)}')
     # ------------- Right container -------- #
     with col2:
         st.metric(label='',
@@ -292,19 +292,19 @@ with st.container():
                 st.text(f'Team: {team_B}')
                 st.text(f'Position: {position_B}')
                 st.text(f'Age: {age_B}')
-                st.text(f'Offensive polygon: {round(df_off_a[1], 2)}')
+                st.text(f'Offensive polygon: {round(df_off_a[0], 2)}')
 
             with col7:
                 st.text(f'Country: {country_B}')
                 st.text(f'Height(cm): {height_B}')
                 st.text(f'Weight(kg): {weight_B}')
-                st.text(f'Defensive polygon: {round(df_def_a[1], 2)}')
+                st.text(f'Defensive polygon: {round(df_def_a[0], 2)}')
 
             with col8: 
                 st.text(f'Plus/Minus: {round(plus_minus_B, 3)}')
                 st.text(f'Drafted in: {draft_B}')
                 st.text(f'Jersey Number: {number_B}') 
-                st.text(f'Descritive polygon: {round(df_desc_a[1], 2)}') 
+                st.text(f'Descritive polygon: {round(df_desc_a[0], 2)}') 
 st.markdown("---")
 
 # ------------------------------------------------------- #   
