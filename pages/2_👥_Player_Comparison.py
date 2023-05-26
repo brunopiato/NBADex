@@ -76,6 +76,8 @@ selected_player_B = st.sidebar.selectbox(label='Select the player',
 selected_data_B = data[data['PLAYER_NAME'] == selected_player_B]
 
 selected_data_complete = data_complete[(data_complete['PLAYER_NAME']==selected_player_A) | (data_complete['PLAYER_NAME']==selected_player_B)]
+selected_data_complete_A = data_complete[(data_complete['PLAYER_NAME']==selected_player_A)]
+selected_data_complete_B = data_complete[(data_complete['PLAYER_NAME']==selected_player_B)]
 
 
 
@@ -91,6 +93,9 @@ height_A = selected_data_A['PLAYER_HEIGHT_CM'].iloc[0].astype(int)
 weight_A = selected_data_A['PLAYER_WEIGHT_KG'].iloc[0]
 draft_A = selected_data_A['DRAFT_YEAR'].iloc[0]
 number_A = selected_data_A['JERSEY_NUMBER'].iloc[0].astype(int)
+points_A = selected_data_complete_A['PTS'].iloc[0]
+blocks_A = selected_data_complete_A['BLK'].iloc[0]
+assists_A = selected_data_complete_A['AST'].iloc[0]
 
 team_B = selected_data_B['TEAM_ABBREVIATION'].iloc[0]
 position_B = selected_data_B['POSITION'].iloc[0]
@@ -101,6 +106,9 @@ height_B = selected_data_B['PLAYER_HEIGHT_CM'].iloc[0].astype(int)
 weight_B = selected_data_B['PLAYER_WEIGHT_KG'].iloc[0]
 draft_B = selected_data_B['DRAFT_YEAR'].iloc[0]
 number_B = selected_data_B['JERSEY_NUMBER'].iloc[0].astype(int)
+points_B = selected_data_complete_B['PTS'].iloc[0]
+blocks_B = selected_data_complete_B['BLK'].iloc[0]
+assists_B = selected_data_complete_B['AST'].iloc[0]
 
 
 #--------------------- FEATURE SELECTION ------------------- #
@@ -268,18 +276,24 @@ with st.container():
                 st.text(f'Team: {team_A}')
                 st.text(f'Position: {position_A}')
                 st.text(f'Age: {age_A}')
+                st.text(f'Points per game: {points_A}')
+
                 st.text(f'Offensive polygon: {round(df_off_a[1], 2)}')
 
             with col4:
                 st.text(f'Country: {country_A}')
                 st.text(f'Height(cm): {height_A}')
                 st.text(f'Weight(kg): {weight_A}')
+                st.text(f'Blocks per game: {blocks_A}')
+
                 st.text(f'Defensive polygon: {round(df_def_a[1], 2)}')
 
             with col5: 
                 st.text(f'Plus/Minus: {round(plus_minus_A, 3)}')
                 st.text(f'Drafted in: {draft_A}')
                 st.text(f'Jersey Number: {number_A}')
+                st.text(f'Assists per game: {assists_A}')
+
                 st.text(f'Descritive polygon: {round(df_desc_a[1], 2)}')
     # ------------- Right container -------- #
     with col2:
@@ -292,18 +306,21 @@ with st.container():
                 st.text(f'Team: {team_B}')
                 st.text(f'Position: {position_B}')
                 st.text(f'Age: {age_B}')
+                st.text(f'Points per game: {points_B}')
                 st.text(f'Offensive polygon: {round(df_off_a[0], 2)}')
 
             with col7:
                 st.text(f'Country: {country_B}')
                 st.text(f'Height(cm): {height_B}')
                 st.text(f'Weight(kg): {weight_B}')
+                st.text(f'Blocks per game: {blocks_B}')
                 st.text(f'Defensive polygon: {round(df_def_a[0], 2)}')
 
             with col8: 
                 st.text(f'Plus/Minus: {round(plus_minus_B, 3)}')
                 st.text(f'Drafted in: {draft_B}')
                 st.text(f'Jersey Number: {number_B}') 
+                st.text(f'Assists per game: {assists_B}')
                 st.text(f'Descritive polygon: {round(df_desc_a[0], 2)}') 
 st.markdown("---")
 

@@ -85,6 +85,9 @@ height = selected_data['PLAYER_HEIGHT_CM'].iloc[0].astype(int)
 weight = selected_data['PLAYER_WEIGHT_KG'].iloc[0]
 draft = selected_data['DRAFT_YEAR'].iloc[0]
 number = selected_data['JERSEY_NUMBER'].iloc[0].astype(int)
+points = selected_data_complete['PTS'].iloc[0]
+blocks = selected_data_complete['BLK'].iloc[0]
+assists = selected_data_complete['AST'].iloc[0]
 
 
 #---------------------- FEATURE SELECTION ------------------- #
@@ -230,6 +233,7 @@ with st.container():
         st.text(f'Team: {team}')
         st.text(f'Position: {position}')
         st.text(f'Age: {age}')
+        st.text(f'Points per game: {points}')
         st.text(f'Offensive polygon: {round(df_off_a[0], 2)}')
 
     # ----------------------------------------------------------------    
@@ -238,6 +242,7 @@ with st.container():
         st.text(f'Country: {country}')
         st.text(f'Height(cm): {height}')
         st.text(f'Weight(kg): {weight}')
+        st.text(f'Blocks per game: {blocks}')
         st.text(f'Defensive polygon: {round(df_def_a[0], 2)}')
 
     # ----------------------------------------------------------------    
@@ -246,6 +251,7 @@ with st.container():
         st.text(f'Plus/Minus: {round(plus_minus, 3)}')
         st.text(f'Drafted in: {draft}')
         st.text(f'Jersey Number: {number}')
+        st.text(f'Assists per game: {assists}')
         st.text(f'Descritive polygon: {round(df_desc_a[0], 2)}')
 
         
