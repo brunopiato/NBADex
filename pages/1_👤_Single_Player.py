@@ -230,8 +230,10 @@ st.metric(label='',
     # ----------------------------------------------------------------    
     
 with st.container():
-    col1, col2, col3, col4 = st.columns([5, 5, 3, 3])
+    col1, col2, col3, col4 = st.columns([3, 5, 5, 3, 3])
     with col1:
+        st.empty()
+    with col2:
         # st.markdown('#### Team, Position and age')
         st.text(f'Team: {team}')
         st.text(f'Position: {position}')
@@ -243,7 +245,7 @@ with st.container():
         st.text(f'Weight(kg): {weight}')
 
     # ----------------------------------------------------------------    
-    with col2:
+    with col3:
         # st.empty()
         st.text(f'Games played: {games_played}')
         st.text(f'Points per game: {points}')
@@ -255,11 +257,11 @@ with st.container():
         st.text(f'Descritive polygon: {round(df_desc_a[0], 2)}')
 
     # ----------------------------------------------------------------    
-    with col4: 
+    with col5: 
         st.empty()
         
     # ----------------------------------------------------------------    
-    with col3:
+    with col4:
         st.markdown(f"##### {selected_player}'s Shot Chart")
         plt.rcParams['figure.figsize'] = (8, 8/1.09)
         fig_shotchart = funcoes.shot_chart(player_shotchart_df, 
