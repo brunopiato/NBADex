@@ -230,7 +230,7 @@ st.metric(label='',
     # ----------------------------------------------------------------    
     
 with st.container():
-    col1, col2, col3, col4 = st.columns([5, 5, 3, 4])
+    col1, col2, col3, col4 = st.columns([5, 5, 3, 3])
     with col1:
         # st.markdown('#### Team, Position and age')
         st.text(f'Team: {team}')
