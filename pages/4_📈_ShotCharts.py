@@ -13,7 +13,7 @@ import numpy as np
 import shapely.geometry as sg
 import funcoes
 
-st.set_page_config(page_title = 'Single Player Vision', layout='wide', page_icon = '📈')
+st.set_page_config(page_title = 'Shot Charts Comparison', layout='wide', page_icon = '📈')
 
 ########################################################
 #              Carregando dados tratados
@@ -36,38 +36,41 @@ st.sidebar.markdown("""---""")
 
 #---------------------- Player selection ------------------- #
 #### Setting the widget
-selected_player = st.sidebar.selectbox(label='Select the player', 
+selected_player_A = st.sidebar.selectbox(label='Select the first player', 
                        options=data['PLAYER_NAME'].unique(),
                        index=252)
-selected_data = data[data['PLAYER_NAME'] == selected_player]
-selected_data_complete = data_complete[data_complete['PLAYER_NAME']==selected_player]
+selected_data_A = data[data['PLAYER_NAME'] == selected_player_A]
+selected_data_complete_A = data_complete[(data_complete['PLAYER_NAME']==selected_player_A)]
+
+selected_player_B = st.sidebar.selectbox(label='Select the second player', 
+                       options=data['PLAYER_NAME'].unique(),
+                       index=166)
+selected_data_B = data[data['PLAYER_NAME'] == selected_player_B]
+selected_data_complete_B = data_complete[(data_complete['PLAYER_NAME']==selected_player_B)]
+
+selected_data_complete = data_complete[(data_complete['PLAYER_NAME']==selected_player_A) | (data_complete['PLAYER_NAME']==selected_player_B)]
 
 
 #-------------------------- METRICS ------------------------ #
-team = selected_data['TEAM_ABBREVIATION'].iloc[0]
-position = selected_data['POSITION'].iloc[0]
-age = selected_data['AGE'].iloc[0].astype(int)
-number = selected_data['JERSEY_NUMBER'].iloc[0].astype(int)
-points = selected_data_complete['PTS'].iloc[0]
-blocks = selected_data_complete['BLK'].iloc[0]
-assists = selected_data_complete['AST'].iloc[0]
-games_played = selected_data_complete['G'].iloc[0]
-
 
 ### Getting data from the API
-player_shotchart_df, league_avg = funcoes.get_player_shotchartdetail(player_name=selected_player, season_id='2022-23')
-player_shotchart_df, league_avg = funcoes.get_player_shotchartdetail(player_name=selected_player, season_id='2022-23')
+playerA_shotchart_df, league_avg = funcoes.get_player_shotchartdetail(player_name=selected_player_A, season_id='2022-23')
+playerB_shotchart_df, league_avg = funcoes.get_player_shotchartdetail(player_name=selected_player_B, season_id='2022-23')
 
-event_type_filter = st.sidebar.multiselect(label='Select the event type',
-                       options=set(player_shotchart_df['EVENT_TYPE']),
-                       default=player_shotchart_df['EVENT_TYPE'].unique())
 
-action_type_filter = st.sidebar.multiselect(label='Select the action type',
-                       options=set(player_shotchart_df['ACTION_TYPE']),
-                       default=player_shotchart_df['ACTION_TYPE'].unique())
+event_type_filter_player = st.sidebar.multiselect(label='Select the event type',
+                       options=set(playerA_shotchart_df['EVENT_TYPE']),
+                       default=playerA_shotchart_df['EVENT_TYPE'].unique())
+action_type_filter_player = st.sidebar.multiselect(label='Select the action type',
+                       options=set(playerA_shotchart_df['ACTION_TYPE']),
+                       default=playerA_shotchart_df['ACTION_TYPE'].unique())
 
-player_shotchart_df_filtered = player_shotchart_df[(player_shotchart_df['EVENT_TYPE'].isin(event_type_filter)) & 
-                                                   (player_shotchart_df['ACTION_TYPE'].isin(action_type_filter))].reset_index()
+
+playerA_shotchart_df_filtered = playerA_shotchart_df[(playerA_shotchart_df['EVENT_TYPE'].isin(event_type_filter_player)) & 
+                                                   (playerA_shotchart_df['ACTION_TYPE'].isin(action_type_filter_player))].reset_index()
+
+playerB_shotchart_df_filtered = playerB_shotchart_df[(playerB_shotchart_df['EVENT_TYPE'].isin(event_type_filter_player)) & 
+                                                   (playerB_shotchart_df['ACTION_TYPE'].isin(action_type_filter_player))].reset_index()
 
 
 
@@ -79,27 +82,34 @@ st.sidebar.markdown('##### Powered by Bruno Piato')
 # st.header("👤 Single Player Vision")
 
 # st.subheader("Player's name")
-st.metric(label='',
-          value=f'{selected_player}')
     # ----------------------------------------------------------------    
     
 with st.container():
-    col1, col2, col3 = st.columns([4,10,4])
+    col1, col2 = st.columns(2)
     with col1:
-        st.empty()
-        
-    with col2:
-        # st.markdown(f"##### {selected_player}'s Shot Chart")
+        st.metric(label='',
+                value=f'{selected_player_A}')
         plt.rcParams['figure.figsize'] = (8, 8/1.09)
-        fig_shotchart = funcoes.shot_chart(player_shotchart_df_filtered, 
-                                            title="{[0]}".format(player_shotchart_df_filtered['PLAYER_NAME']), 
+        fig_shotchart = funcoes.shot_chart(playerA_shotchart_df_filtered, 
+                                            title="{0}            FG%: {1}".format(playerA_shotchart_df_filtered['PLAYER_NAME'][0], 
+                                                                                   selected_data_A['FG_PCT'].iloc[0]), 
                                             flip_court=False,
                                             court_lw=2)
         st.set_option('deprecation.showPyplotGlobalUse', False)
         st.pyplot(use_container_width=True)
         
-    with col3:
-        st.empty()
+    with col2:
+        st.metric(label='',
+                value=f'{selected_player_B}')
+        plt.rcParams['figure.figsize'] = (8, 8/1.09)
+        fig_shotchart = funcoes.shot_chart(playerB_shotchart_df_filtered, 
+                                            title="{0}            FG%: {1}".format(playerB_shotchart_df_filtered['PLAYER_NAME'][0], 
+                                                                                   selected_data_B['FG_PCT'].iloc[0]), 
+                                            flip_court=False,
+                                            court_lw=2)
+        st.set_option('deprecation.showPyplotGlobalUse', False)
+        st.pyplot(use_container_width=True)
+
         
 st.markdown("---")
 

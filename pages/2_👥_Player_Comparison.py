@@ -65,12 +65,12 @@ st.sidebar.markdown("""---""")
 
 
 #---------------------- Player selection ------------------- #
-selected_player_A = st.sidebar.selectbox(label='Select the player', 
+selected_player_A = st.sidebar.selectbox(label='Select the first player', 
                        options=data['PLAYER_NAME'].unique(),
                        index=252)
 selected_data_A = data[data['PLAYER_NAME'] == selected_player_A]
 
-selected_player_B = st.sidebar.selectbox(label='Select the player', 
+selected_player_B = st.sidebar.selectbox(label='Select the second player', 
                        options=data['PLAYER_NAME'].unique(),
                        index=166)
 selected_data_B = data[data['PLAYER_NAME'] == selected_player_B]
