@@ -230,7 +230,7 @@ st.metric(label='',
     # ----------------------------------------------------------------    
     
 with st.container():
-    col1, col2, col3, col4, col5 = st.columns([2, 5, 5, 3, 3])
+    col1, col2, col3, col4, col5 = st.columns([1, 5, 5, 3, 2])
     with col1:
         st.empty()
     with col2:
