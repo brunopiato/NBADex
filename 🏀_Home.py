@@ -25,29 +25,28 @@ st.markdown("""
             
             ### How to use the NBA PlayersDex
                 - First tab:
-                    - A single player vision.
+                    - A single player vision, with their main stats along with a shot chart and 
+                    three radar charts.
                 - Second tab: 
-                    - A player-to-player comparison.
+                    - A player-to-player comparison with their main stats with three comparative 
+                    radar chart.
                 - Third tab:
-                    - An overall view of the main statistics.
+                    - An overall view of the main statistics and season analytics.
                 - Forth tab:
                     - A features glossary as extracted from:
                         https://www.nba.com/stats/help/glossary
-                - Note that the values inside the radar charts are 
-                standardized according to the maximum for each feature
-                in the dataset. It means that a value of 0.3 is equivalent 
-                of 30% of the maximumfor that feature, while a value of 1.0 
-                is the maximum value itselt.
-                - If you want to check the real values for each feature it 
-                is presented at the end of the page 
+                        
+                - Note that the values inside the radar charts are standardized according to the 
+                maximum for each feature in the dataset. It means that a value of 0.3 is 
+                equivalent of 30% of the maximum for that feature, while a value of 1.0 is the 
+                maximum value itselt.
+                - If you want to check the real values for each feature it is presented at the 
+                end of the page.
             
             ### Next features to be implemented:
-            - New characteristics and traits about the players, like height, weight, wingspan, etc
             - Data from previous season players
             - Team and position filters to make search easier
-            - Some advanced analytics like
-                - Polygonal area for each chart of each player
-                - Clustering method to group similar players
+            -  A clustering Machine Learning algorithm to cluster players according to their stats
             
             #### Ask for help
             - Via Discord: @piatobruno#0143
