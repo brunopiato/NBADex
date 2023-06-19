@@ -277,7 +277,6 @@ with st.container():
                 st.text(f'Position: {position_A}')
                 st.text(f'Age: {age_A}')
                 st.text(f'Points per game: {points_A}')
-
                 st.text(f'Offensive polygon: {round(df_off_a[1], 2)}')
 
             with col4:
@@ -285,7 +284,6 @@ with st.container():
                 st.text(f'Height(cm): {height_A}')
                 st.text(f'Weight(kg): {weight_A}')
                 st.text(f'Blocks per game: {blocks_A}')
-
                 st.text(f'Defensive polygon: {round(df_def_a[1], 2)}')
 
             with col5: 
@@ -293,8 +291,7 @@ with st.container():
                 st.text(f'Drafted in: {draft_A}')
                 st.text(f'Jersey Number: {number_A}')
                 st.text(f'Assists per game: {assists_A}')
-
-                st.text(f'Descritive polygon: {round(df_desc_a[1], 2)}')
+                st.text(f'Descriptive polygon: {round(df_desc_a[1], 2)}')
     # ------------- Right container -------- #
     with col2:
         st.metric(label='',
@@ -321,7 +318,7 @@ with st.container():
                 st.text(f'Drafted in: {draft_B}')
                 st.text(f'Jersey Number: {number_B}') 
                 st.text(f'Assists per game: {assists_B}')
-                st.text(f'Descritive polygon: {round(df_desc_a[0], 2)}') 
+                st.text(f'Descriptive polygon: {round(df_desc_a[0], 2)}') 
 st.markdown("---")
 
 # ------------------------------------------------------- #   
@@ -329,22 +326,22 @@ st.markdown("---")
 # ------------------------------------------------------- #   
 with st.container():
     # st.markdown('## Chart', )
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4, col5 = st.columns([5,1,5,1,5])
     
     # ---------------------- OFFENSIVE ------------------------ #   
     with col1:
-        # st.markdown('### Offensive')
         st.plotly_chart(fig_off, use_container_width=True)
+    with col2:
+        st.empty()
 
     # ---------------------- DEFENSIVE ------------------------ #   
-    with col2:
-        # st.markdown('### Defensive')
+    with col3:
         st.plotly_chart(fig_def, use_container_width=True)
-
+    with col4:
+        st.empty()
         
     # ---------------------- DESCRIPTIVE ------------------------ #   
-    with col3:
-        # st.markdown('### Other Features')
+    with col5:
         st.plotly_chart(fig_desc, use_container_width=True)
 # ----------------------------------------------------------------
 

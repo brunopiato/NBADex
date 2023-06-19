@@ -276,20 +276,23 @@ st.markdown("---")
 # ----------------------------------------------------------------    
 with st.container():
     # st.markdown('## Chart', )
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4, col5 = st.columns([5,1,5,1,5])
     # ----------------------------------------------------------------    
     with col1:
         # st.markdown('### Offensive')
         st.plotly_chart(fig_off, use_container_width=True)
-        
+    with col2:
+        st.empty()
 
     # ----------------------------------------------------------------    
-    with col2:
+    with col3:
         # st.markdown('### Defensive')
         st.plotly_chart(fig_def, use_container_width=True)
+    with col4:
+        st.empty()
         
 # ----------------------------------------------------------------    
-    with col3:
+    with col5:
         # st.markdown('### Other Features')
         st.plotly_chart(fig_desc, use_container_width=True)
 
