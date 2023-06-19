@@ -11,6 +11,7 @@ import plotly.graph_objects as go
 import random
 import numpy as np
 import shapely.geometry as sg
+import funcoes
 
 st.set_page_config(page_title = 'Single Player Vision', layout='wide', page_icon = '👤')
 
@@ -88,6 +89,7 @@ number = selected_data['JERSEY_NUMBER'].iloc[0].astype(int)
 points = selected_data_complete['PTS'].iloc[0]
 blocks = selected_data_complete['BLK'].iloc[0]
 assists = selected_data_complete['AST'].iloc[0]
+games_played = selected_data_complete['G'].iloc[0]
 
 
 #---------------------- FEATURE SELECTION ------------------- #
@@ -211,7 +213,8 @@ df_desc["y"] = np.sin(df_desc["theta_radian"]) * df_desc["r"]
 df_desc_a = df_desc.groupby("trace").apply(lambda d: sg.MultiPoint(list(zip(d["x"], d["y"]))).convex_hull.area)
 fig_desc = fig_desc.for_each_trace(lambda t: t.update(name=f"{t.name} {df_desc_a.loc[t.name]:.2f}"))
 
-
+### Getting data from the API
+player_shotchart_df, league_avg = funcoes.get_player_shotchartdetail(player_name=selected_player, season_id='2022-23')
 
 
 
@@ -227,33 +230,44 @@ st.metric(label='',
     # ----------------------------------------------------------------    
     
 with st.container():
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns([5, 5, 3, 5])
     with col1:
         # st.markdown('#### Team, Position and age')
         st.text(f'Team: {team}')
         st.text(f'Position: {position}')
+        st.text(f'Jersey Number: {number}')
         st.text(f'Age: {age}')
-        st.text(f'Points per game: {points}')
-        st.text(f'Offensive polygon: {round(df_off_a[0], 2)}')
-
-    # ----------------------------------------------------------------    
-    with col2:
-        # st.markdown('#### Country, height and weight')
+        st.text(f'Drafted in: {draft}')
         st.text(f'Country: {country}')
         st.text(f'Height(cm): {height}')
         st.text(f'Weight(kg): {weight}')
-        st.text(f'Blocks per game: {blocks}')
-        st.text(f'Defensive polygon: {round(df_def_a[0], 2)}')
 
     # ----------------------------------------------------------------    
-    with col3: 
-        # st.markdown('#### Nationality, Plus/Minus and draft')
+    with col2:
+        # st.empty()
+        st.text(f'Games played: {games_played}')
+        st.text(f'Points per game: {points}')
+        st.text(f'Offensive polygon: {round(df_off_a[0], 2)}')
+        st.text(f'Blocks per game: {blocks}')
+        st.text(f'Defensive polygon: {round(df_def_a[0], 2)}')
         st.text(f'Plus/Minus: {round(plus_minus, 3)}')
-        st.text(f'Drafted in: {draft}')
-        st.text(f'Jersey Number: {number}')
         st.text(f'Assists per game: {assists}')
         st.text(f'Descritive polygon: {round(df_desc_a[0], 2)}')
 
+    # ----------------------------------------------------------------    
+    with col4: 
+        st.empty()
+        
+    # ----------------------------------------------------------------    
+    with col3:
+        st.markdown(f"##### {selected_player}'s Shot Chart")
+        plt.rcParams['figure.figsize'] = (8, 8/1.09)
+        fig_shotchart = funcoes.shot_chart(player_shotchart_df, 
+                                           title="{[0]}".format(player_shotchart_df['PLAYER_NAME']), 
+                                           flip_court=False,
+        court_lw=2)
+        st.set_option('deprecation.showPyplotGlobalUse', False)
+        st.pyplot()
         
 st.markdown("---")
 

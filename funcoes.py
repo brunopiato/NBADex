@@ -199,9 +199,9 @@ def shot_chart(data, title="", color="b",
     y_made = data[data['EVENT_TYPE'] == 'Made Shot']['LOC_Y']
 
     # plot missed shots
-    ax.scatter(x_missed, y_missed, c='r', s=30, linewidths=3, **kwargs)
+    ax.scatter(x_missed, y_missed, c='r', s=80, **kwargs, alpha=0.8)
     # plot made shots
-    ax.scatter(x_made, y_made, facecolors='none', c='g', s=30, linewidths=3, **kwargs)
+    ax.scatter(x_made, y_made, facecolors='none', c='g', s=80, **kwargs, alpha=0.8)
         
     # Set the spines to match the rest of court lines, makes outer_lines
     # somewhate unnecessary
