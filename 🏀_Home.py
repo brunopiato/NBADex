@@ -31,8 +31,10 @@ st.markdown("""
                     - A player-to-player comparison with their main stats with three comparative 
                     radar chart.
                 - Third tab:
-                    - An overall view of the main statistics and season analytics.
+                    - Two players shot charts comparison.
                 - Forth tab:
+                    - An overall view of the main statistics and season analytics.
+                - Fifth tabe:
                     - A features glossary as extracted from:
                         https://www.nba.com/stats/help/glossary
                         
@@ -40,8 +42,8 @@ st.markdown("""
                 maximum for each feature in the dataset. It means that a value of 0.3 is 
                 equivalent of 30% of the maximum for that feature, while a value of 1.0 is the 
                 maximum value itselt.
-                - If you want to check the real values for each feature it is presented at the 
-                end of the page.
+                
+                - You can check the absolute values for each feature at the end of each page.
             
             ### Next features to be implemented:
             - Data from previous season players

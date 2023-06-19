@@ -79,11 +79,13 @@ st.sidebar.markdown('##### Powered by Bruno Piato')
 #              Layout do corpo da página
 ########################################################
 
-# st.header("👤 Single Player Vision")
+st.markdown("""
+            # Shot Charts
+            Shot charts are a very effective way to visualize a player's accuracy, preferred shooting positions and most effective areas on court.
+            
+            In this page you can select two players to compare as well as choose only two pointers, three pointer or both. You can also select the type of action the player took to make the shot attempt.
+            """)
 
-# st.subheader("Player's name")
-    # ----------------------------------------------------------------    
-    
 with st.container():
     col1, col2 = st.columns(2)
     with col1:
