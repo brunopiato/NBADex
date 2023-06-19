@@ -249,12 +249,12 @@ with st.container():
         # st.empty()
         st.text(f'Games played: {games_played}')
         st.text(f'Points per game: {points}')
-        st.text(f'Offensive polygon: {round(df_off_a[0], 2)}')
         st.text(f'Blocks per game: {blocks}')
-        st.text(f'Defensive polygon: {round(df_def_a[0], 2)}')
         st.text(f'Plus/Minus: {round(plus_minus, 3)}')
         st.text(f'Assists per game: {assists}')
-        st.text(f'Descritive polygon: {round(df_desc_a[0], 2)}')
+        st.text(f'Offensive polygon: {round(df_off_a[0], 2)}')
+        st.text(f'Defensive polygon: {round(df_def_a[0], 2)}')
+        st.text(f'Descriptive polygon: {round(df_desc_a[0], 2)}')
 
     # ----------------------------------------------------------------    
     with col5: 
