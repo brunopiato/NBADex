@@ -44,6 +44,6 @@ st.markdown("""
                 - Clustering method to group similar players
             
             #### Ask for help
-            - Via Discord: @piatobruno#0143
-            - Via e-mail: piatobio@gmail.com
+            - Via Discord: [brunopiato](https://discordapp.com/users/438408418429239296)
+            - Via e-mail: [piatobio@gmail.com](mailto:piatobio@gmail.com)
             """)
