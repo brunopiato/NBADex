@@ -5,9 +5,10 @@ st.set_page_config(
     page_icon="🏀")
 
 
-st.sidebar.markdown('# NBA PlayersDex v.0.2')
-st.sidebar.markdown('## Season 22/23')
-st.sidebar.markdown('## Visualizing your favorite players')
+st.sidebar.markdown('# NBA-Dex v0.2')
+st.sidebar.markdown('## Season 2022-23')
+st.sidebar.markdown(
+    '## Visualizing your favorite players for better decision making.')
 st.sidebar.image('./pages/NBA_logo.png', use_column_width=True)
 st.sidebar.markdown("""---""")
 
@@ -17,7 +18,9 @@ st.write('## Season 22/23')
 st.markdown("""
             This app is intended to give you a visual analysis of your favorite players along with a comparison of a player-to-player rank for players during season 2022 and 2023.
             
-            I strongly recommend you to use the dark theme (`Settings >> Theme >> Dark`) so the colors of the charts match more elegantly.
+            In each player's page you find information about that player, such as their weight, height nationality, etc, along with some charts about their stats. You'll find a
+            general metric of the area of the polygons formed in the radar charts shown along with the general player's infos. The polygons are assumed to represent the overall 
+            quality of the player so the measure of its area is a numerical metric to assess such information and its .
             
             ### How to use the NBA PlayersDex
                 - First tab:
@@ -29,15 +32,17 @@ st.markdown("""
                 - Third tab:
                     - Two players shot charts comparison.
                 - Forth tab:
+                    - An overall view of the main statistics and season analytics.
+                - Fifth tabe:
                     - A features glossary as extracted from:
-                        https://www.basketball-reference.com/
-                - Note that the values inside the radar charts are 
-                standardized according to the maximum for each feature
-                in the dataset. It means that a value of 0.3 is equivalent 
-                of 30% of the maximumfor that feature, while a value of 1.0 
-                is the maximum value itselt.
-                - If you want to check the real values for each feature it 
-                is presented at the end of the page 
+                        https://www.nba.com/stats/help/glossary
+                        
+                - Note that the values inside the radar charts are standardized according to the 
+                maximum for each feature in the dataset. It means that a value of 0.3 is 
+                equivalent of 30% of the maximum for that feature, while a value of 1.0 is the 
+                maximum value itself.
+                
+                - You can check the absolute values for each feature at the end of each page.
             
             ### Next features to be implemented:
             - Data from previous season players

@@ -5,13 +5,12 @@
 import streamlit as st
 
 
+st.set_page_config(page_title='Features Glossary',
+                   layout='centered', page_icon='🗒️')
 
 ########################################################
 #              Carregando dados tratados
 ########################################################
-
-
-
 
 
 ########################################################
@@ -22,9 +21,6 @@ st.sidebar.image('./pages/NBA_logo_small.png', use_column_width=True)
 st.sidebar.markdown('# NBA PlayersDex v.0.2')
 st.sidebar.markdown('## Season 22/23')
 st.sidebar.markdown("""---""")
-
-
-
 
 
 ########################################################
@@ -162,8 +158,3 @@ BOX_OUTS: Number of times a player drawn contact with another player in order to
 - C: Center (pivô - 5)
             
             """)
-
-
-
-
-
