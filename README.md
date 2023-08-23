@@ -1,40 +1,36 @@
-# NBA Players Dex
+This app is intended to give you a visual analysis of your favorite players along with a comparison of a player-to-player rank for players during season 2022 and 2023.
+            
+In each player's page you find information about that player, such as their weight, height nationality, etc, along with some charts about their stats. You'll find a
+general metric of the area of the polygons formed in the radar charts shown along with the general player's infos. The polygons are assumed to represent the overall 
+quality of the player so the measure of its area is a numerical metric to assess such information and its .
 
-The NBA Players Dex is an app in which the NBA fan can visualize and inspect some data about their favorite player, comparing different player to visually access their similarity.
+### How to use the NBA PlayersDex
+    - First tab:
+        - A single player vision, with their main stats along with a shot chart and 
+        three radar charts.
+    - Second tab: 
+        - A player-to-player comparison with their main stats with three comparative 
+        radar chart.
+    - Third tab:
+        - Two players shot charts comparison.
+    - Forth tab:
+        - An overall view of the main statistics and season analytics.
+    - Fifth tabe:
+        - A features glossary as extracted from:
+            https://www.nba.com/stats/help/glossary
+            
+    - Note that the values inside the radar charts are standardized according to the 
+    maximum for each feature in the dataset. It means that a value of 0.3 is 
+    equivalent of 30% of the maximum for that feature, while a value of 1.0 is the 
+    maximum value itself.
+    
+    - You can check the absolute values for each feature at the end of each page.
 
-It can be acessed in this link: https://brunopiato-nbadex--home-ema0lf.streamlit.app/
-
-I strongly recommend you to use the dark theme (`Settings >> Theme >> Dark`) so the colors of the charts match more elegantly.
-
-## The main goal
-Providing the NBA fan community with an easy and simple way to interact and inspect NBA.
-
-## NBA Players Dex content
-- First tab:
-    - A single player vision.
-- Second tab: 
-    - A player-to-player comparison.
-- Third tab:
-    - An overall view of the main statistics.
-- Forth tab:
-    - A features glossary as extracted from: https://www.basketball-reference.com/
-    - Note that the values inside the radar charts are 
-    standardized according to the maximum for each feature
-    in the dataset. It means that a value of 0.3 is equivalent 
-    of 30% of the maximumfor that feature, while a value of 1.0 
-    is the maximum value itselt.
-    - If you want to check the real values for each feature it 
-    is presented at the end of the page 
-
-### Features to be implemented in the future
-- New characteristics and traits about the players, like height, weight, wingspan, nationality, etc.
-- Data from previous season players.
-- Team and position filters to make search easier.
-- Some advanced analytics like
-    - Polygonal area for each chart of each player
-    - Clustering method to group similar players
-    - Shooting map of the court for each player
+### Next features to be implemented:
+- Data from previous season players
+- Team and position filters to make search easier
+-  A clustering Machine Learning algorithm to cluster players according to their stats
 
 #### Ask for help
-- Via Discord: @piatobruno#0143
-- Via e-mail: piatobio@gmail.com
+- Via Discord: [brunopiato](https://discordapp.com/users/438408418429239296)
+- Via e-mail: [piatobio@gmail.com](mailto:piatobio@gmail.com)
