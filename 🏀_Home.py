@@ -1,8 +1,8 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title = "Home",
-    page_icon = "🏀")
+    page_title="Home",
+    page_icon="🏀")
 
 
 st.sidebar.markdown('# NBA PlayersDex v.0.1')
@@ -16,8 +16,6 @@ st.write('## Season 22/23')
 
 st.markdown("""
             This app is intended to give you a visual analysis of your favorite players along with a comparison of a player-to-player rank for players during season 2022 and 2023.
-            
-            I strongly recommend you to use the dark theme (`Settings >> Theme >> Dark`) so the colors of the charts match more elegantly.
             
             ### How to use the NBA PlayersDex
                 - First tab:
