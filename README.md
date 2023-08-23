@@ -1,3 +1,5 @@
+# NBA-Dex for Season 2022-23
+
 This app is intended to give you a visual analysis of your favorite players along with a comparison of a player-to-player rank for players during season 2022 and 2023.
             
 In each player's page you find information about that player, such as their weight, height nationality, etc, along with some charts about their stats. You'll find a
